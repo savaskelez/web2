@@ -1,0 +1,36 @@
+﻿@using projem.Models.EntityFramework
+@model List<Kitap>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a class="btn btn-block" href="/Kitap/Yeni">Yeni Kitap Kaydı</a>
+<a class="btn btn-block" href="/Yazar/Index">Kitap İslemleri</a>
+<h2>İslemler</h2>
+
+<table class="table table-bordered" id="tblIslemler">
+    <thead>
+        <tr>
+            <th>İşlem No</th>
+            <th>Kitap adı</th>
+            <th>Sayfa Sayısı</th>
+            <th>Yazar Adı</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Kitap in Model)
+        {
+            <tr>
+                <td>@Kitap.ID</td>
+                <td>@Kitap.KitapAdi</td>
+                <td>@Kitap.sayfasayisi</td>
+                <td>@Kitap.Yazarİd</td>
+                <td><a class="btn btn-primary" href="/Kitap/Guncelle/@Kitap.ID">Güncelle</a></td>
+                <td><a class="btn btn-danger" href="/Kitap/Sil/@Kitap.ID">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

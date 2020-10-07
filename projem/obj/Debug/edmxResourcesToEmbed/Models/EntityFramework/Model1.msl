@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="projeModelStoreContainer" CdmEntityContainer="projeEntities">
+    <EntitySetMapping Name="Kitap">
+      <EntityTypeMapping TypeName="projeModel.Kitap">
+        <MappingFragment StoreEntitySet="Kitap">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KitapAdi" ColumnName="KitapAdi" />
+          <ScalarProperty Name="Yazarİd" ColumnName="Yazarİd" />
+          <ScalarProperty Name="sayfasayisi" ColumnName="sayfasayisi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="yazar">
+      <EntityTypeMapping TypeName="projeModel.yazar">
+        <MappingFragment StoreEntitySet="yazar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

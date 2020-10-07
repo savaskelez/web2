@@ -1,0 +1,22 @@
+﻿
+@model projem.Models.EntityFramework.Kitap
+@{
+    ViewBag.Title = "Yeni";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni</h2>
+@using (Html.BeginForm("Yeni", "Kitap", FormMethod.Post))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.KitapAdi)
+        @Html.TextBoxFor(m => m.KitapAdi, new { @class = "form-control" })
+        @Html.LabelFor(m => m.sayfasayisi)
+        @Html.TextBoxFor(m => m.sayfasayisi, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Yazarİd)
+        @Html.TextBoxFor(m => m.Yazarİd, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.ID)
+    <button type="submit" class="btn btn-secondary">Kaydet</button>
+}

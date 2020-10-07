@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="projeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Kitap">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KitapAdi" Type="nvarchar" MaxLength="50" />
+    <Property Name="Yazarİd" Type="int" />
+    <Property Name="sayfasayisi" Type="int" />
+  </EntityType>
+  <EntityType Name="yazar">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdSoyad" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Kitap_yazar">
+    <End Role="yazar" Type="Self.yazar" Multiplicity="0..1" />
+    <End Role="Kitap" Type="Self.Kitap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="yazar">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Kitap">
+        <PropertyRef Name="Yazarİd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="projeModelStoreContainer">
+    <EntitySet Name="Kitap" EntityType="Self.Kitap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="yazar" EntityType="Self.yazar" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Kitap_yazar" Association="Self.FK_Kitap_yazar">
+      <End Role="yazar" EntitySet="yazar" />
+      <End Role="Kitap" EntitySet="Kitap" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
